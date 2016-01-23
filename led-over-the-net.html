@@ -10,8 +10,6 @@
 
 <body>
 
-  
-
     <div class="onoffswitch">
     <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch-green" onclick="greenOnChangeCheckbox (this)" unchecked>
     <label class="onoffswitch-label" for="myonoffswitch-green">
@@ -28,23 +26,18 @@
     </label>
 	</div>
 
-
-
     <script type="text/javascript">
       	var deviceID    = "YOUR_DEVICE_ID";
       	var accessToken = "YOUR_ACCESS_TOKEN";
 		var setFunc="";
 		var paramStr="";
 
-    
-
        function greenOnChangeCheckbox (checkbox) {
+            setFunc = "led1";
             if (checkbox.checked) {
-                setFunc = "led1";
                 paramStr = "on";
             }
             else {
-                setFunc = "led1";
                 paramStr = "off";
             }
             var requestURL = "https://api.spark.io/v1/devices/" +deviceID + "/" + setFunc + "/";
@@ -52,19 +45,16 @@
         }
 
         function redOnChangeCheckbox (checkbox) {
+            setFunc = "led2";
             if (checkbox.checked) {
-                setFunc = "led2";
-                paramStr = "on";
+               paramStr = "on";
             }
             else {
-                setFunc = "led2";
                 paramStr = "off";
             }
             var requestURL = "https://api.spark.io/v1/devices/" +deviceID + "/" + setFunc + "/";
         $.post( requestURL, { params: paramStr, access_token: accessToken });
         }
-
-
 
     </script>
 </body>
