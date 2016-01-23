@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+	
+	<head>
+		
+		<link rel="stylesheet" type="text/css" href="style.css">
+	
+  		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+<body>
+
+  
+
+    <div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch-green" onclick="greenOnChangeCheckbox (this)" unchecked>
+    <label class="onoffswitch-label" for="myonoffswitch-green">
+        <span class="onoffswitch-inner-green"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+	</div>
+
+	<div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch-red" onclick="redOnChangeCheckbox (this)" unchecked>
+    <label class="onoffswitch-label" for="myonoffswitch-red">
+        <span class="onoffswitch-inner-red"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+	</div>
+
+
+
+    <script type="text/javascript">
+      	var deviceID    = "350032000647343339373536";
+      	var accessToken = "e40bc0ee2dbc02026f4035f0677afb56e1beb26d";
+		var setFunc="";
+		var paramStr="";
+
+    
+
+       function greenOnChangeCheckbox (checkbox) {
+            if (checkbox.checked) {
+                setFunc = "led1";
+                paramStr = "on";
+            }
+            else {
+                setFunc = "led1";
+                paramStr = "off";
+            }
+            var requestURL = "https://api.spark.io/v1/devices/" +deviceID + "/" + setFunc + "/";
+        $.post( requestURL, { params: paramStr, access_token: accessToken });
+        }
+
+        function redOnChangeCheckbox (checkbox) {
+            if (checkbox.checked) {
+                setFunc = "led2";
+                paramStr = "on";
+            }
+            else {
+                setFunc = "led2";
+                paramStr = "off";
+            }
+            var requestURL = "https://api.spark.io/v1/devices/" +deviceID + "/" + setFunc + "/";
+        $.post( requestURL, { params: paramStr, access_token: accessToken });
+        }
+
+
+
+    </script>
+</body>
+</html>

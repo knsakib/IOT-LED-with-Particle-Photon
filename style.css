@@ -1,0 +1,76 @@
+.onoffswitch {
+    position: relative; width: 148px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    margin: 50px;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 20px;
+}
+.onoffswitch-inner-green, .onoffswitch-inner-red {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner-green:before, .onoffswitch-inner-green:after, .onoffswitch-inner-red:before, .onoffswitch-inner-red:after {
+    display: block; float: left; width: 50%; height: 33px; padding: 0; line-height: 33px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+
+
+.onoffswitch-inner-green:before {
+    content: "Green LED ON";
+    padding-left: 10px;
+    background-color: #36B516; color: #FFFFFF;
+}
+.onoffswitch-inner-green:after {
+    content: "Green LED OFF";
+    padding-right: 10px;
+    background-color: #ABF5BE; color: #999999;
+    text-align: right;
+}
+
+
+
+.onoffswitch-inner-red:before {
+    content: "Red LED ON";
+    padding-left: 10px;
+    background-color: #E64820; color: #FFFFFF;
+}
+.onoffswitch-inner-red:after {
+    content: "Red LED OFF";
+    padding-right: 10px;
+    background-color: #F0C0B8; color: #999999;
+    text-align: right;
+}
+
+
+
+
+.onoffswitch-switch {
+    display: block; width: 19px; margin: 7px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 111px;
+    border: 2px solid #999999; border-radius: 20px;
+    transition: all 0.3s ease-in 0s; 
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner-red {
+    margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner-green {
+    margin-left: 0;
+}
+
+
+
+
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
